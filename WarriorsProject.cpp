@@ -10,6 +10,7 @@ private:
     int attack;
     int defense;
     int magic;
+    int attack_start;
 
 public:
     Warrior()
@@ -23,12 +24,20 @@ public:
         magic = 5;
     } // defaulten konstruktor
     Warrior(std::string name, int level, int experience, int health, int attack, int defense, int magic)
-        : name(name), level(level), experience(experience), health(health), attack(attack), defense(defense), magic(magic) {}
+        : name(name), level(level), experience(experience), health(health), attack(attack), defense(defense), magic(magic)
+    {
+        attack_start = attack;
+    }
     // inizializirasht spisyk
 
     int getAttack() const
     {
         return attack;
+    }
+
+    void resetAttack()
+    {
+        attack = attack_start;
     }
 
     void attackEnemy()
@@ -75,11 +84,11 @@ public:
     void gainExperience(int exp)
     {
         experience += exp;
-        if (experience >= 10)
+        if (experience >= 100)
         {
             level = level + 1;
-            experience = 0;
-            health = health+25*level;// kolkoot po golqm level poveche se healva ako e dignal level
+            experience = experience - 100;
+            health = health + 25 * level; // kolkoot po golqm level poveche se healva ako e dignal level
         }
     }
 };
@@ -112,7 +121,10 @@ public:
     {
         return attack;
     }
-
+    int getLevel() const
+    {
+        return level;
+    }
     void operator=(Enemy other)
     {
         name = other.name;
@@ -165,7 +177,7 @@ public:
     }
 };
 
-bool game(Warrior player, Enemy enemy)
+void game(Warrior player, Enemy enemy, Enemy arr[])
 {
 
     while (player.isAlive() && enemy.isAlive())
@@ -223,14 +235,32 @@ bool game(Warrior player, Enemy enemy)
 
     if (player.isAlive())
     {
+        player.resetAttack();
         std::cout << "Player wins!\n";
-        player.gainExperience(10); // igracha poluchava 10xp
-        return 1;
+        player.gainExperience(10 * enemy.getLevel()); // igracha poluchava 10xp
+        int command;
+        std ::cout << "Choose your next action: 0 - end the game, 1 - fight the dragon , 2 - fight the troll , 3 - fight the Orc: ";
+        std ::cin >> command;
+        std ::cout << std ::endl;
+        switch (command)
+        {
+        case 0:
+            std ::cout << "GAME OVER";
+            break;
+        case 1:
+            game(player, arr[0], arr);
+        case 2:
+            game(player, arr[1], arr);
+        case 3:
+            game(player, arr[2], arr);
+        default:
+            std ::cout << "Wrong input!" << std ::endl;
+        }
     }
     else
     {
         std::cout << "Enemy wins!\n";
-        return 0;
+        std ::cout << "GAME OVER";
     }
 }
 
@@ -241,22 +271,7 @@ int main()
     Enemy enemy0("Dragon", 2, 120, 10, 0, 20);
     Enemy enemy1("Troll", 3, 30, 50, 5, 10);
     Enemy enemy2("Orc", 5, 70, 30, 0, 0);
-    Enemy arr = {enemy0,enemy1,enemy2};
-    if (game(player, enemy))
-    {
-        switch (expression)
-        {
-        case /* constant-expression */:
-            /* code */
-            break;
-
-        default:
-            break;
-        }
-    }
-    else
-    {
-        std ::cout << "GAME OVER";
-    }
+    Enemy arr[] = {enemy0, enemy1, enemy2};
+    game(player, enemy, arr);
     return 0;
 }
