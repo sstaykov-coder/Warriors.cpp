@@ -236,7 +236,14 @@ void game(Warrior player, Enemy enemy, Enemy arr[])
     if (player.isAlive())
     {
         player.resetAttack();
-        std::cout << "Player wins!\n";
+        std::cout << " ____  _       ____  __ __    ___  ____       __    __  ____  ____   _____\n";
+    std::cout << "|    \\| |     /    ||  |  |  /  _]|    \\     |  |__|  ||    ||    \\ / ___/\n";
+    std::cout << "|  o  ) |    |  o  ||  |  | /  [_ |  D  )    |  |  |  | |  | |  _  (   \\_ \n";
+    std::cout << "|   _/| |___ |     ||  ~  ||    _]|    /     |  |  |  | |  | |  |  |\\__  |\n";
+    std::cout << "|  |  |     ||  _  ||___, ||   [_ |    \\     |  `  '  | |  | |  |  |/  \\ |\n";
+    std::cout << "|  |  |     ||  |  ||     ||     ||  .  \\     \\      /  |  | |  |  |\\    |\n";
+    std::cout << "|__|  |_____||__|__||____/ |_____||__|\\_|      \\_/\\_/  |____||__|__| \\___|\n";
+   
         player.gainExperience(10 * enemy.getLevel()); // igracha poluchava 10xp
         int command;
         std ::cout << "Choose your next action: 0 - end the game, 1 - fight the dragon , 2 - fight the troll , 3 - fight the Orc: ";
@@ -245,7 +252,13 @@ void game(Warrior player, Enemy enemy, Enemy arr[])
         switch (command)
         {
         case 0:
-            std ::cout << "GAME OVER";
+            std::cout << "  ____   ____  ___ ___    ___       ___   __ __    ___  ____  \n";
+    std::cout << " /    | /    ||   |   |  /  _]     /   \\ |  |  |  /  _]|    \\ \n";
+    std::cout << "|   __||  o  || _   _ | /  [_     |     ||  |  | /  [_ |  D  )\n";
+    std::cout << "|  |  ||     ||  \\_/  ||    _]    |  O  ||  |  ||    _]|    / \n";
+    std::cout << "|  |_ ||  _  ||   |   ||   [_     |     ||  :  ||   [_ |    \\ \n";
+    std::cout << "|     ||  |  ||   |   ||     |    |     | \\   / |     ||  .  \\ \n";
+    std::cout << "|___,_||__|__||___|___||_____|     \\___/   \\_/  |_____||__|\\_|\n";
             break;
         case 1:
             game(player, arr[0], arr);
@@ -259,8 +272,22 @@ void game(Warrior player, Enemy enemy, Enemy arr[])
     }
     else
     {
-        std::cout << "Enemy wins!\n";
-        std ::cout << "GAME OVER";
+        std::cout << "   ___  ____     ___  ___ ___  __ __      __    __  ____  ____   _____\n";
+    std::cout << "  /  _]|    \\   /  _]|   |   ||  |  |    |  |__|  ||    ||    \\ / ___/\n";
+    std::cout << " /  [_ |  _  | /  [_ | _   _ ||  |  |    |  |  |  | |  | |  _  (   \\_ \n";
+    std::cout << "|    _]|  |  ||    _]|  \\_/  ||  ~  |    |  |  |  | |  | |  |  |\\__  |\n";
+    std::cout << "|   [_ |  |  ||   [_ |   |   ||___, |    |  `  '  | |  | |  |  |/  \\ |\n";
+    std::cout << "|     ||  |  ||     ||   |   ||     |     \\      /  |  | |  |  |\\    |\n";
+    std::cout << "|_____||__|__||_____||___|___||____/       \\_/\\_/  |____||__|__| \\___|\n";
+    std::cout << "                                                                       \n";
+        
+        std::cout << "  ____   ____  ___ ___    ___       ___   __ __    ___  ____  \n";
+    std::cout << " /    | /    ||   |   |  /  _]     /   \\ |  |  |  /  _]|    \\ \n";
+    std::cout << "|   __||  o  || _   _ | /  [_     |     ||  |  | /  [_ |  D  )\n";
+    std::cout << "|  |  ||     ||  \\_/  ||    _]    |  O  ||  |  ||    _]|    / \n";
+    std::cout << "|  |_ ||  _  ||   |   ||   [_     |     ||  :  ||   [_ |    \\ \n";
+    std::cout << "|     ||  |  ||   |   ||     |    |     | \\   / |     ||  .  \\ \n";
+    std::cout << "|___,_||__|__||___|___||_____|     \\___/   \\_/  |_____||__|\\_|\n";
     }
 }
 
