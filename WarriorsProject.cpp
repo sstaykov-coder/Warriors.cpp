@@ -3,6 +3,7 @@
 class Warrior
 {
 private:
+// komentar
     std::string name;
     int level;
     int experience;
