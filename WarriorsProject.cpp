@@ -55,7 +55,7 @@ public:
     void useMagic()
     {
         std::cout << name << " uses magic!\n";
-        this->attack = this->attack + magic;
+        attack += magic;
     }
 
     void displayStats()
@@ -79,7 +79,10 @@ public:
         {
             health = health + defense - damage;
             defense = 0;
-        }
+
+        }else{
+            defense = defense - damage;
+        } 
     }
 
     void gainExperience(int exp)
@@ -150,7 +153,7 @@ public:
     void useMagic()
     {
         std::cout << name << " uses magic!\n";
-        this->defense = this->defense + magic;
+        defense += magic;
     }
 
     void displayStats()
@@ -174,7 +177,9 @@ public:
         {
             health = health + defense - damage;
             defense = 0;
-        }
+        }else{
+            defense = defense - damage;
+        }   
     }
 };
 
