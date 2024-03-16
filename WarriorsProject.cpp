@@ -262,10 +262,13 @@ void game(Warrior player, Enemy enemy, Enemy arr[])
             break;
         case 1:
             game(player, arr[0], arr);
+            break;
         case 2:
             game(player, arr[1], arr);
+            break;
         case 3:
             game(player, arr[2], arr);
+            break;
         default:
             std ::cout << "Wrong input!" << std ::endl;
         }
